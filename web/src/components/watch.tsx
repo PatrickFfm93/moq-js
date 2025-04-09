@@ -18,7 +18,7 @@ export default function Watch(props: { name: string }) {
 	const [usePlayer, setPlayer] = createSignal<Player | undefined>()
 	createEffect(() => {
 		const namespace = props.name
-		const url = `https://${server}`
+		const url = props.name === "test" ? "https://moq-test.logic-services.de:4443" : `https://${server}`
 
 		// Special case localhost to fetch the TLS fingerprint from the server.
 		// TODO remove this when WebTransport correctly supports self-signed certificates
