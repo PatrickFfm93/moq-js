@@ -5,6 +5,7 @@ import solidJs from "@astrojs/solid-js"
 import nodejs from "@astrojs/node"
 import mkcert from "vite-plugin-mkcert"
 import crossOriginIsolation from "vite-plugin-cross-origin-isolation"
+import awsAmplify from "astro-aws-amplify"
 
 // https://astro.build/config
 export default defineConfig({
@@ -16,10 +17,8 @@ export default defineConfig({
 			applyBaseStyles: false,
 		}),
 	],
-	// Renders any non-static pages using node
-	adapter: nodejs({
-		mode: "standalone",
-	}),
+
+	adapter: awsAmplify(),
 	// Default to static rendering, but allow server rendering per-page
 	output: "hybrid",
 	vite: {
